@@ -1,0 +1,21 @@
+  {% extends 'femitex/base.html' %}
+  {% load crispy_forms_tags %}
+
+  {% block main-content %}
+
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <form method="POST">
+        {% csrf_token %}
+        <div><h3>Login Form</h3></div>
+        {{ form|crispy }}
+
+        <button class="btn btn-sm btn-outline-info" type="submit">Login</button>
+        <a href="#" class="btn btn-sm btn-outline-info" type="submit">Register</a>
+        </form>
+
+      </div>
+    </div>
+  </div>
+{% endblock main-content %}

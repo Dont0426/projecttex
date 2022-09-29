@@ -1,0 +1,27 @@
+{% extends 'femitex/base.html' %}
+{% block main-content %}
+
+  <div class="container">
+    {% if messages %}
+          {% for message in messages %}
+              <div style="background-color: green; border-radius: 20px;" class="col-4 m-auto">
+                  <div class="p-4">
+                      {{message}}
+                  </div>
+                </div>
+          {% endfor %}
+      {% endif %}
+    <div class="row">
+      <div class="col-10 m-auto">
+        
+
+        <div class=" m-1 p-3 mb-2" style="border-radius: 20px; background-color: #dee6ec">
+          <h3>{{post.title}}</h3>
+          <p>{{post.date_created}}</p>
+          <p>{{post.owner.username}}</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+{% endblock main-content %}

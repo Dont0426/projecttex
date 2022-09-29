@@ -1,0 +1,23 @@
+{% extends 'femitex/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block main-content %}
+<div class="container">
+  <div class="row">
+      <div class="col-10 m-auto">
+          <form method="POST">
+              {% csrf_token %}
+              <div><h3>Proceed to Delete Post</h3></div>
+              {{ form|crispy }}
+
+              <button class="btn btn-sm btn-outline-info" type="submit">Delete Post</button>
+              <a href="{% url 'homepage' %}" class="btn btn-sm btn-outline-secondary">Go Back</a>
+          </form>
+
+      </div>
+
+  </div>
+
+</div>
+
+{% endblock main-content %}

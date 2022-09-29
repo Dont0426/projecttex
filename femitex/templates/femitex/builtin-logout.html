@@ -1,0 +1,16 @@
+{% extends 'femitex/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block main-content %}
+
+    <div class="container">
+    <div class="row">
+        <div class="col-8">
+            <h3> you have been successfully logged out</h3>
+        <a class="btn btn-sm btn-outline-info" href="{% url 'loginpage' %}">login Again</a>
+        
+
+        </div>
+    </div>
+    </div>
+{% endblock main-content %}

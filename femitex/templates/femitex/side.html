@@ -1,0 +1,37 @@
+{% extends 'femitex/base.html' %}
+{% block main-content %}
+
+    <div class="container">
+            {% if messages %}
+                {% for message in messages %}
+                    <div style="background-color: green; border-radius: 20px;" class="col-4 m-auto">
+                        <div class="p-4">
+                            {{message}}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        <div class="row">
+        <div class="col-6">
+        {% for post in posts %}
+
+        <div class="bg-Light mt-2 mb-2" style="border-radius: 20px; background-color: #dee6ec">
+            <h1>{{post.title}}</h1>
+            <p>{{post.date_created}}</p>
+            <p>{{post.owner.username}}</p>
+        
+        </div>
+        {% endfor %}
+        </div>
+     </div>
+    </div>
+{% endblock main-content %}
+
+{% block side_bar-content %}
+
+    <div class="bg-Light col-10 m-4 p-3 mb-2 rounded">
+        <h3>{{last_post.title}}</h3>
+        <p>{{last_post.date_created}}</p>
+        <p>{{last_post.owner.username}}</p>
+    </div>
+{% endblock side_bar-content %}

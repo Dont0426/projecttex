@@ -1,0 +1,48 @@
+{% extends 'femitex/base.html' %}
+
+{% block main-content %}
+
+<div class="container">
+    {% if messages %}
+    {% for message in messages %}
+    <div style="background-color: green; border-radius: 20px;" class="col-4 m-auto">
+        <div class="p-4">
+            {{message}}
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+    <div class="row">
+
+        <div class="col-10 ">
+
+            <div class=" m-1 p-3 mb-2" style="border-radius: 20px; background-color: #dee6ec;">
+                <h3> {{post.title}}</h3>
+                <p>{{post.date_created}}</p>
+                <p>{{post.owner.username}}</p>
+                {% if user == post.owner %}
+                <a class="btn btn-sm btn-outline-info" href="{% url 'classupdatepost' post.id %}" >Update</a>
+                <a class="btn btn-sm btn-danger " href="{% url 'classdeletepost' post.id %}" >Delete</a>
+                {% else %}
+                <a class="btn btn-sm btn-outline-info" href="{% url 'homepage' %}">Home</a>
+                {% endif%}
+            </div>
+
+
+        </div>
+        
+
+    </div>
+
+</div>
+
+{% endblock main-content %}
+
+{% block side-content %}
+    <div class="bg-light col-10 m-4 p-3 mb-2 rounded">
+        <h3>Side Bar</h3>
+        <p>Most recent post</p>
+        
+    </div>
+
+{% endblock side-content %}
